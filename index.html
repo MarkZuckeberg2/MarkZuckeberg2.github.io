@@ -1,86 +1,21 @@
+<!doctype html>
 <html>
-  <head>
-    <title>My Forum</title>
-    <style>
-      /* Add some basic styling for the forum */
-      body {
-        font-family: sans-serif;
-      }
-      #posts {
-        margin: 20px;
-      }
-      .post {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        padding: 20px;
-      }
-      .post-header {
-        display: flex;
-        align-items: center;
-      }
-      .post-header h3 {
-        margin: 0;
-      }
-      .post-header img {
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
-        margin-right: 20px;
-      }
-      .post-body {
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <form id="post-form">
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name"><br>
-      <label for="post">Post:</label><br>
-      <textarea id="post" name="post"></textarea><br>
-      <button type="submit">Submit</button>
-    </form> 
-    <div id="posts"></div>
-    <script>
-      // Get a reference to the form and the list of posts
-      const form = document.getElementById('post-form');
-      const postsList = document.getElementById('posts');
-
-      // Add an event listener to the form to handle submission
-      form.addEventListener('submit', (event) => {
-        // Prevent the form from reloading the page
-        event.preventDefault();
-
-        // Get the values of the form fields
-        const name = event.target.elements.name.value;
-        const post = event.target.elements.post.value;
-
-        // Create a new post element
-        const postElement = document.createElement('div');
-        postElement.classList.add('post');
-        postElement.innerHTML = `
-          <div class="post-header">
-            <img src="https://picsum.photos/50/50" alt="${name}'s profile picture">
-            <h3>${name}</h3>
-          </div>
-          <div class="post-body">
-            ${post}
-          </div>
-        `;
-
-        // Add the new post to the list of posts
-        postsList.insertBefore(postElement, postsList.firstChild);
-
-        // Reset the form fields
-        event.target.reset();
-      });
-    </script>
-  </body>
+<head>
+  <title>Forum</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/posts">Posts</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome to the Forum!</h1>
+    <p>This is a community for discussing a variety of topics. Please sign up or log in to join the conversation.</p>
+  </main>
+</body>
 </html>
-
-<form id="post-form" style="display: none;">
-  <label for="post">Post:</label><br>
-  <textarea id="post" name="post" maxlength="150"></textarea><br>
-  <button type="submit">Submit</button>
-</form> 
