@@ -3,60 +3,39 @@
     <title>My Social Media App</title>
   </head>
   <body>
-    <h1>Welcome to My Social Media App</h1>
-    <h2>Create a Post</h2>
-    <form>
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" name="username"><br>
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message"></textarea><br>
-      <button type="submit">Post</button>
-    </form> 
-    <h2>Recent Posts</h2>
-    <div id="posts">
-      <!-- Posts will be added here dynamically -->
+    <!-- Login form -->
+    <form id="login-form">
+      <h2>Login</h2>
+      <label for="login-username">Username:</label><br>
+      <input type="text" id="login-username" name="login-username"><br>
+      <label for="login-password">Password:</label><br>
+      <input type="password" id="login-password" name="login-password"><br>
+      <button type="submit">Login</button>
+    </form>
+    <!-- Signup form -->
+    <form id="signup-form">
+      <h2>Signup</h2>
+      <label for="signup-username">Username:</label><br>
+      <input type="text" id="signup-username" name="signup-username"><br>
+      <label for="signup-password">Password:</label><br>
+      <input type="password" id="signup-password" name="signup-password"><br>
+      <button type="submit">Signup</button>
+    </form>
+    <!-- Main content -->
+    <div id="main">
+      <h1>Welcome to My Social Media App</h1>
+      <h2>Create a Post</h2>
+      <form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <button type="submit">Post</button>
+      </form> 
+      <h2>Recent Posts</h2>
+      <div id="posts">
+        <!-- Posts will be added here dynamically -->
+      </div>
     </div>
   </body>
 </html>
-
-// Select the posts container
-const postsContainer = document.getElementById('posts');
-
-// Create a new post
-const createPost = (username, message) => {
-  // Create the post element
-  const postEl = document.createElement('div');
-  postEl.classList.add('post');
-
-  // Add the username
-  const usernameEl = document.createElement('h3');
-  usernameEl.textContent = username;
-  postEl.appendChild(usernameEl);
-
-  // Add the message
-  const messageEl = document.createElement('p');
-  messageEl.textContent = message;
-  postEl.appendChild(messageEl);
-
-  // Add the like button
-  const likeButtonEl = document.createElement('button');
-  likeButtonEl.textContent = 'Like';
-  postEl.appendChild(likeButtonEl);
-
-  // Add the comment form
-  const commentFormEl = document.createElement('form');
-  commentFormEl.innerHTML = '<label for="comment">Comment:</label><br><textarea id="comment" name="comment"></textarea><br><button type="submit">Comment</button>';
-  postEl.appendChild(commentFormEl);
-
-  // Add the post to the container
-  postsContainer.appendChild(postEl);
-}
-
-// Add a new post when the form is submitted
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const username = document.getElementById('username').value;
-  const message = document.getElementById('message').value;
-  createPost(username, message);
-});
