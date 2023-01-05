@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messaging App</title>
+</head>
+<body>
+  <h1>Messaging App</h1>
+  <form id="message-form">
+    <input type="text" id="user-input" placeholder="Enter a message">
+    <button type="submit">Send</button>
+  </form>
+  <div id="message-log"></div>
+  <script>
+    const messageForm = document.getElementById('message-form');
+    const messageLog = document.getElementById('message-log');
+
+    // Load previous messages from local storage
+    const messages = JSON.parse(localStorage.getItem('messages')) || [];
+    for (const message of messages) {
+      messageLog.innerHTML += `<p><strong>${message.author}:</strong> ${message.text}</p>`;
+    }
+
+    messageForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const userInput = document.getElementById('user-input');
+      const message = {
+        author: 'You',
+        text: userInput.value
+      };
+      userInput.value = '';
+      messageLog.innerHTML += `<p><strong>${message.author}:</strong> ${message.text}</p>`;
+
+      // Save the message to local storage
+      messages.push(message);
+      localStorage.setItem('messages', JSON.stringify(messages));
+    });
+  </script>
+</body>
+</html>
