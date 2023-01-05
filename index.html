@@ -1,41 +1,55 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>My Social Media App</title>
-  </head>
-  <body>
-    <!-- Login form -->
-    <form id="login-form">
-      <h2>Login</h2>
-      <label for="login-username">Username:</label><br>
-      <input type="text" id="login-username" name="login-username"><br>
-      <label for="login-password">Password:</label><br>
-      <input type="password" id="login-password" name="login-password"><br>
-      <button type="submit">Login</button>
-    </form>
-    <!-- Signup form -->
-    <form id="signup-form">
-      <h2>Signup</h2>
-      <label for="signup-username">Username:</label><br>
-      <input type="text" id="signup-username" name="signup-username"><br>
-      <label for="signup-password">Password:</label><br>
-      <input type="password" id="signup-password" name="signup-password"><br>
-      <button type="submit">Signup</button>
-    </form>
-    <!-- Main content -->
-    <div id="main">
-      <h1>Welcome to My Social Media App</h1>
-      <h2>Create a Post</h2>
-      <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message"></textarea><br>
-        <button type="submit">Post</button>
-      </form> 
-      <h2>Recent Posts</h2>
-      <div id="posts">
-        <!-- Posts will be added here dynamically -->
-      </div>
-    </div>
-  </body>
+<head>
+  <title>Forum</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Forum</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Sign Up</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="categories">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">Category 1</a></li>
+        <li><a href="#">Category 2</a></li>
+        <li><a href="#">Category 3</a></li>
+      </ul>
+    </section>
+    <section id="topics">
+      <h2>Recent Topics</h2>
+      <ul>
+        <li>
+          <h3><a href="#">Topic Title</a></h3>
+          <p>Topic description goes here.</p>
+          <p>Posted by <a href="#">Username</a> on January 1, 2021</p>
+        </li>
+        <li>
+          <h3><a href="#">Topic Title</a></h3>
+          <p>Topic description goes here.</p>
+          <p>Posted by <a href="#">Username</a> on January 2, 2021</p>
+        </li>
+        <li>
+          <h3><a href="#">Topic Title</a></h3>
+          <p>Topic description goes here.</p>
+          <p>Posted by <a href="#">Username</a> on January 3, 2021</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright 2021 Forum</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
 </html>
