@@ -1,28 +1,62 @@
-<!-- post.php -->
-<!doctype html>
 <html>
-<head>
-  <title>New Post</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/posts">Posts</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>New Post</h1>
-    <form action="/create_post.php" method="post">
-      <label for="title">Title:</label><br>
-      <input type="text" id="title" name="title"><br>
-      <label for="content">Content:</label><br>
-      <textarea id="content" name="content"></textarea><br>
-      <input type="submit" value="Submit">
+  <head>
+    <title>My Social Media App</title>
+  </head>
+  <body>
+    <h1>Welcome to My Social Media App</h1>
+    <h2>Create a Post</h2>
+    <form>
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message"></textarea><br>
+      <button type="submit">Post</button>
     </form> 
-  </main>
-</body>
+    <h2>Recent Posts</h2>
+    <div id="posts">
+      <!-- Posts will be added here dynamically -->
+    </div>
+  </body>
 </html>
+
+// Select the posts container
+const postsContainer = document.getElementById('posts');
+
+// Create a new post
+const createPost = (username, message) => {
+  // Create the post element
+  const postEl = document.createElement('div');
+  postEl.classList.add('post');
+
+  // Add the username
+  const usernameEl = document.createElement('h3');
+  usernameEl.textContent = username;
+  postEl.appendChild(usernameEl);
+
+  // Add the message
+  const messageEl = document.createElement('p');
+  messageEl.textContent = message;
+  postEl.appendChild(messageEl);
+
+  // Add the like button
+  const likeButtonEl = document.createElement('button');
+  likeButtonEl.textContent = 'Like';
+  postEl.appendChild(likeButtonEl);
+
+  // Add the comment form
+  const commentFormEl = document.createElement('form');
+  commentFormEl.innerHTML = '<label for="comment">Comment:</label><br><textarea id="comment" name="comment"></textarea><br><button type="submit">Comment</button>';
+  postEl.appendChild(commentFormEl);
+
+  // Add the post to the container
+  postsContainer.appendChild(postEl);
+}
+
+// Add a new post when the form is submitted
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const username = document.getElementById('username').value;
+  const message = document.getElementById('message').value;
+  createPost(username, message);
+});
