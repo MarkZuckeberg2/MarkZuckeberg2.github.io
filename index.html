@@ -1,7 +1,8 @@
+<!-- post.php -->
 <!doctype html>
 <html>
 <head>
-  <title>Forum</title>
+  <title>New Post</title>
 </head>
 <body>
   <header>
@@ -14,8 +15,14 @@
     </nav>
   </header>
   <main>
-    <h1>Welcome to the Forum!</h1>
-    <p>This is a community for discussing a variety of topics. Please sign up or log in to join the conversation.</p>
+    <h1>New Post</h1>
+    <form action="/create_post.php" method="post">
+      <label for="title">Title:</label><br>
+      <input type="text" id="title" name="title"><br>
+      <label for="content">Content:</label><br>
+      <textarea id="content" name="content"></textarea><br>
+      <input type="submit" value="Submit">
+    </form> 
   </main>
 </body>
 </html>
