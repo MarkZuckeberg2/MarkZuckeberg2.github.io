@@ -31,3 +31,21 @@ getMessages();
 
 // update messages every 10 seconds
 setInterval(getMessages, 10000);
+
+// retrieve and display messages from server
+function getMessages() {
+  // retrieve messages from server
+  fetch('/messages')
+    .then(response => response.json())
+    .then(messages => {
+      // clear existing messages
+      document.getElementById('messages').innerHTML = '';
+
+      // display messages
+      messages.forEach(message => {
+        var messageElem = document.createElement('div');
+        messageElem.textContent = message;
+        document.getElementById('messages').appendChild(messageElem);
+      });
+    });
+}
