@@ -49,3 +49,9 @@ function getMessages() {
       });
     });
 }
+
+// get initial set of messages
+getMessages();
+
+// update messages every 10 seconds
+setInterval(getMessages, 10000);
