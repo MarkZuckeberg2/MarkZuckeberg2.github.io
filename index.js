@@ -1,55 +1,20 @@
-const form = document.getElementById('post-form');
-const postsList = document.getElementById('posts');
+function searchForum() {
+  // Get the search input
+  var searchInput = document.getElementById('search-input').value;
 
-// Add an event listener to the form to handle submission
-form.addEventListener('submit', (event) => {
-  // Prevent the form from reloading the page
-  event.preventDefault();
+  // Perform the search and display the results
+  // You can use an AJAX request to a server-side script that searches the forum database and returns the results
+}
 
-  // Get the values of the form fields
-  const name = event.target.elements.name.value;
-  const post = event.target.elements.post.value;
+function signIn() {
+  // Validate the sign-in form and submit it
+  // You can use an AJAX request to a server-side script that verifies the credentials and logs the user in
+}
 
-  // Create a new post object
-  const newPost = {
-    name: name,
-    post: post
-  };
+function signUp() {
+  // Validate the sign-up form and submit it
+  // You can use an AJAX request to a server-side script that creates a new account and logs the user in
+}
 
-  // Get the existing posts from local storage, or an empty array if there are none
-  let posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-  // Add the new post to the array of posts
-  posts.unshift(newPost);
-
-  // Save the updated array of posts to local storage
-  localStorage.setItem('posts', JSON.stringify(posts));
-
-  // Reset the form fields
-  event.target.reset();
-});
-
-// When the page loads, get the saved posts from local storage and display them
-window.addEventListener('load', () => {
-  // Get the saved posts from local storage
-  const posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-  // Loop through the posts and add them to the page
-  for (const post of posts) {
-    // Create a new post element
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    postElement.innerHTML = `
-      <div class="post-header">
-        <img src="https://picsum.photos/50/50" alt="${post.name}'s profile picture">
-        <h3>${post.name}</h3>
-      </div>
-      <div class="post-body">
-        ${post.post}
-      </div>
-    `;
-
-    // Add the new post to the list of posts
-    postsList.appendChild(postElement);
-  }
-});
+function createTopic() {
+  // Val
