@@ -1,23 +1,18 @@
-<form id="ai-form">
-  <label for="user-input">Ask a question:</label><br>
-  <input type="text" id="user-input"><br>
-  <input type="submit" value="Submit">
-</form>
-
-<div id="ai-response">
-  <!-- AI response will be displayed here -->
-</div>
-
-<script>
-  // Listen for form submission
-  document.getElementById('ai-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from reloading the page
-
-    // Get user's input
-    const userInput = document.getElementById('user-input').value;
-
-    // Use AI library or API to generate response
-    const aiResponse = generateAiResponse(userInput);
-
-    // Display response on page
-    document.getElementById('ai-response').
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+</head>
+<body>
+  <div id="chat-window">
+    <div id="messages">
+      <!-- messages will be inserted here -->
+    </div>
+  </div>
+  <form id="message-form">
+    <input type="text" id="message-input" placeholder="Enter your message">
+    <button type="submit">Send</button>
+  </form>
+  <script src="chat.js"></script>
+</body>
+</html>
