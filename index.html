@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chatly</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Forum</title>
 </head>
 <body>
-  <div id="chat-window">
-    <div id="messages">
-      <!-- messages will be inserted here -->
-    </div>
-  </div>
-  <form id="message-form">
-    <input type="text" id="message-input" placeholder="Enter your message">
-    <button type="submit">Send</button>
+  <h1>Forum</h1>
+  <form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic">
+    <br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+    <br>
+    <input type="submit" value="Post">
   </form>
-  <script src="index.js"></script>
+  <br>
+  <h2>Recent Posts</h2>
+  <div id="posts">
+    <!-- Posts will be added here via JavaScript -->
+  </div>
 </body>
 </html>
