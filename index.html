@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Forum</title>
+<title>Chat Room</title>
 </head>
 <body>
-  <h1>Forum</h1>
-  <form>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-    <br>
-    <label for="topic">Topic:</label>
-    <input type="text" id="topic" name="topic">
-    <br>
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-    <br>
-    <input type="submit" value="Post">
+
+<div id="chat-container">
+  <div id="chat-output"></div>
+  <form id="chat-form">
+    <input type="text" id="chat-input" placeholder="Enter message...">
+    <button type="submit">Send</button>
   </form>
-  <br>
-  <h2>Recent Posts</h2>
-  <div id="posts">
-    <!-- Posts will be added here via JavaScript -->
-  </div>
+</div>
+
+<script src="chat.js"></script>
 </body>
 </html>
