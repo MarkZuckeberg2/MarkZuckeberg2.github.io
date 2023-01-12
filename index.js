@@ -1,57 +1,30 @@
-
-// send message to server
-function sendMessage() {
-  // get message text
-  var message = document.getElementById('message-input').value;
-
-  // send message to server
-  // ...
-
-  // clear message input
-  document.getElementById('message-input').value = '';
-}
-
-// retrieve and display messages from server
-function getMessages() {
-  // retrieve messages from server
-  // ...
-
-  // display messages
-  // ...
-}
-
-// listen for form submission
-document.getElementById('message-form').onsubmit = function(event) {
-  event.preventDefault();
-  sendMessage();
-};
-
-// get initial set of messages
-getMessages();
-
-// update messages every 10 seconds
-setInterval(getMessages, 10000);
-
-// retrieve and display messages from server
-function getMessages() {
-  // retrieve messages from server
-  fetch('/messages')
-    .then(response => response.json())
-    .then(messages => {
-      // clear existing messages
-      document.getElementById('messages').innerHTML = '';
-
-      // display messages
-      messages.forEach(message => {
-        var messageElem = document.createElement('div');
-        messageElem.textContent = message;
-        document.getElementById('messages').appendChild(messageElem);
-      });
+<script>
+    // Get the form element
+    var form = document.querySelector('form');
+    // Add an event listener to the form
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Get the post data from the form
+        var username = document.querySelector('#username').value;
+        var topic = document.querySelector('#topic').value;
+        var message = document.querySelector('#message').value;
+        // Send the post data to the PHP script
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'save-post.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // The post was saved successfully
+                // Clear the form fields
+                document.querySelector('#username').value = '';
+                document.querySelector('#topic').value = '';
+                document.querySelector('#message').value = '';
+                // Display the post on the page
+                var post = document.createElement('div');
+                post.innerHTML = '<h3>' + topic + '</h3><p>' + message + '</p><p>By: ' + username + '</p>';
+                document.querySelector('#posts').appendChild(post);
+            }
+        };
+        xhr.send('username=' + username + '&topic=' + topic + '&message=' + message);
     });
-}
-
-// get initial set of messages
-getMessages();
-
-// update messages every 10 seconds
-setInterval(getMessages, 10000);
+</script>
