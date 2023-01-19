@@ -39,3 +39,22 @@
 .square.black {
   background-color: black;
 }
+#menu button {
+  padding: 10px 20px;
+  border-radius: 20px; /* Round edges */
+  box-shadow: none; /* No shadow by default */
+  transition: box-shadow 0.2s ease; /* Add a transition for the shadow */
+}
+
+#menu button:hover {
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* Add a drop shadow on hover */
+}
+#menu button {
+  padding: 10px 20px;
+  border-radius: 20px; 
+  box-shadow: none; 
+  transition: box-shadow 0.2s ease; 
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+}
