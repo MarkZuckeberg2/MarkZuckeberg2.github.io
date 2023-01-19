@@ -58,3 +58,16 @@
   color: white;
   font-size: 18px;
 }
+.custom-button {
+  padding: 10px 20px;
+  border-radius: 20px; 
+  box-shadow: none; 
+  transition: box-shadow 0.2s ease; 
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+}
+
+.custom-button:hover {
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
