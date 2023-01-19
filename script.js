@@ -27,3 +27,17 @@ function handlePieceClick(event) {
   event.target.style.left = newPosition.x + "px";
   event.target.style.top = newPosition.y + "px";
 }
+const playVsAiButton = document.getElementById("play-vs-ai");
+const showBoardButton = document.getElementById("show-board");
+const chessBoard = document.getElementById("chess-board");
+
+playVsAiButton.addEventListener("click", handlePlayVsAi);
+showBoardButton.addEventListener("click", handleShowBoard);
+
+function handlePlayVsAi() {
+  // Code to start a game against an AI goes here
+}
+
+function handleShowBoard() {
+  chessBoard.classList.remove("hidden");
+}
