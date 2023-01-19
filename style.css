@@ -24,3 +24,6 @@
   background-image: url(path/to/image.png);
   background-size: contain;
 }
+#chess-board.hidden {
+  display: none;
+}
