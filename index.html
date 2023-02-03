@@ -1,21 +1,797 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<div id="menu">
-  <button id="play-vs-ai" class="custom-button">Play vs AI</button>
-  <button id="show-board" class="custom-button">Show Chessboard</button>
-</div>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
+var canvas = document.createElement('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+document.body.appendChild(canvas);
+var ctx = canvas.getContext('2d');
 
-<div id="chess-board" class="hidden">
-  <!-- chess board structure -->
-</div>
-<body>
-  <div id="chess-board">
-    <!-- chess board structure -->
-  </div>
-  <script src="script.js"></script>
-</body>
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.x = player.x - player.speed;
+    }
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.x = player.x - player.speed;
+    }
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].x = Math.round(blocks[i].x / 20) * 20;
+    blocks[i].y = Math.round(blocks[i].y / 20) * 20;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.x = player.x - player.speed;
+    }
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].x = Math.round(blocks[i].x / 20) * 20;
+    blocks[i].y = Math.round(blocks[i].y / 20) * 20;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+    delete keysDown[32];
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.x = player.x - player.speed;
+    }
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].x = Math.round(blocks[i].x / 20) * 20;
+    blocks[i].y = Math.round(blocks[i].y / 20) * 20;
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+
+var player = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: 20,
+  height: 20,
+  speed: 5,
+  color: '#00A',
+  draw: function() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+  }
+};
+
+var blocks = [];
+
+var keysDown = {};
+
+addEventListener('keydown', function(e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener('keyup', function(e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var update = function() {
+  if (38 in keysDown) {
+    player.y -= player.speed;
+  }
+  if (40 in keysDown) {
+    player.y += player.speed;
+  }
+  if (37 in keysDown) {
+    player.x -= player.speed;
+  }
+  if (39 in keysDown) {
+    player.x += player.speed;
+  }
+  if (player.y > canvas.height - player.height / 2) {
+    player.y = canvas.height - player.height / 2;
+  }
+  if (player.y < player.height / 2) {
+    player.y = player.height / 2;
+  }
+  if (player.x > canvas.width - player.width / 2) {
+    player.x = canvas.width - player.width / 2;
+  }
+  if (player.x < player.width / 2) {
+    player.x = player.width / 2;
+  }
+  player.y += 1;
+  if (32 in keysDown) {
+    blocks.push({
+      x: player.x,
+      y: player.y,
+      width: 20,
+      height: 20,
+      color: '#A00'
+    });
+    delete keysDown[32];
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.x = player.x - player.speed;
+    }
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].x = Math.round(blocks[i].x / 20) * 20;
+    blocks[i].y = Math.round(blocks[i].y / 20) * 20;
+  }
+  for (var i = 0; i < blocks.length; i++) {
+    if (player.x < blocks[i].x + blocks[i].width / 2 &&
+      player.x + player.width / 2 > blocks[i].x &&
+      player.y < blocks[i].y + blocks[i].height / 2 &&
+      player.y + player.height / 2 > blocks[i].y) {
+      player.y = player.y - player.speed;
+    }
+  }
+};
+
+var render = function() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  player.draw();
+  for (var i = 0; i < blocks.length; i++) {
+    ctx.fillStyle = blocks[i].color;
+    ctx.fillRect(blocks[i].x - blocks[i].width / 2, blocks[i].y - blocks[i].height / 2, blocks[i].width, blocks[i].height);
+  }
+};
+
+var main = function() {
+  update();
+  render();
+  requestAnimationFrame(main);
+};
+
+main();
+});
+        </script>
+    </head>
+    <body style="margin: 0;">
+        </div>
+    </body>
 </html>
